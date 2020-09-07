@@ -80,7 +80,35 @@ namespace Bank
             {
                 Console.WriteLine($"{pair.Value}: {pair.Key}");
             }
+
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    InsertMoney();
+                    break;
+                case "2":
+                    WithdrawMoney();
+                    break;
+                case "3":
+                    return;
+                default:
+                    Console.WriteLine("You did not choose one of the options above.");
+                    break;
+            }
         }
+
+        private static void WithdrawMoney()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void InsertMoney()
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool Authenticate(ref string input)
         {
             //Todo check if user exist.
