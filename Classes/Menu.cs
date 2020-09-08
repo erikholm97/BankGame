@@ -10,31 +10,39 @@ namespace Bank
     /// </summary>
     public class Menu
     {
-        public void ShowMenu()
+        public static void ShowATMMenu()
         {
             Console.WriteLine("1) Insert money");
             Console.WriteLine("2) Withdraw money");
-            Console.WriteLine("3) Exit");
+            Console.WriteLine("3) Show balance");
+            Console.WriteLine("4) Exit");
             Console.SetCursorPosition(0, 8);
             Console.Write("Please choose a number from above: ");
         }
-
-        public static void InsertCardAnimation(int amount)
+        
+        public static void CardAnimation(int amount, string animationType)
         {
-            string atmInsert = "|             |";
+
+            string atmInsert = "|ATM    Output|";
             string card =       "|100          | ";
             string cardSpaceing = "|             | ";
             int counter = 0;
             double amountOfBills = amount / 100;
             
             Console.WriteLine("Opening atm...");
-            
-                Console.WriteLine(atmInsert);
-                Console.WriteLine(" _____________ ");
+
+            if (animationType == "Insert")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
 
                 while (counter < amountOfBills)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    //Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(card);
                     Console.WriteLine(cardSpaceing);
                     Console.WriteLine(" _____________ ");
@@ -44,6 +52,16 @@ namespace Bank
 
                 Thread.Sleep(1000);
                 Console.Clear();
+        }
+        public static void LoadingText(string text)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(text);
+                text += '.';
+
+                Thread.Sleep(100);
+            }
         }
     }
 }
