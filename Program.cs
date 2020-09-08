@@ -24,18 +24,19 @@ namespace Bank
 
         }
 
-        public static void DrawOptionMenu() // meny ändrad 
+        public static void OptionMenu() // meny ändrad 
         {
-            Menu ShowMenu = new Menu();
             BankAccount account = new BankAccount(); //Todo fixa så att account amount ändras om man går tillbaka och gör en withdraw efter man lagt in pengar så att amount blir rätt.
             account.Amount = 4000;
 
-            bool listRunning = true;
-            while (listRunning)
+            string dialoge = "Press [ENTER] to go back to the menu";
+
+            bool isDone = false;
+            while (!isDone)
             {
 
                 string option;
-                ShowMenu.ShowMenu();
+                Menu.ShowATMMenu(); 
 
                 option = Console.ReadLine();
 
@@ -43,32 +44,40 @@ namespace Bank
                 {
 
                     case "1":
-                        InsertMoney(account);
-                        Console.WriteLine("Press [ENTER] to go back to the menu");
+                        account.InsertMoney(account);
+                        Console.WriteLine(dialoge);
                         Console.ReadLine();
                         Console.Clear();
                         break;
 
                     case "2":
-                        WithdrawMoney(account);
-                        Console.WriteLine("Press [ENTER] to go back to the menu");
+                        account.WithdrawMoney(account);
+                        Console.WriteLine(dialoge);
                         Console.ReadLine();
                         Console.Clear();
                         break;
-
                     case "3":
+                        Console.WriteLine(dialoge);
+                        account.WriteAmount();
+                        Console.ReadLine();
+                        break;
                     default:
                         Console.WriteLine("You did not choose one of the options above.");
                         Console.ReadLine();
                         Console.Clear();
                         break;
                 }
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Quit program?");
+                Console.ResetColor();
+                Console.ReadLine();
             }
         }
 
         public static void StartCashMachine()
         {
-            LoadingText("Starting bank");
+            Menu.LoadingText("Starting bank");
 
             Console.Clear();
 
@@ -87,8 +96,8 @@ namespace Bank
             Console.WriteLine("Card inserted.");
             Console.ResetColor();
 
-            LoadingText("Loading card options.");
-
+            Menu.LoadingText("Loading card options.");
+            Console.Clear();
             LogIn();
         }
 
@@ -107,46 +116,10 @@ namespace Bank
             Console.WriteLine("You are logged in!");
             Thread.Sleep(1000);
             Console.Clear();
-            DrawOptionMenu();
+            OptionMenu();
         }
 
         //Todo spara data i minnet så att det finns ett konto, blir mer logisk 
-        private static void InsertMoney(BankAccount account)
-        {
-            Console.WriteLine("How much money would you like to insert?");
-            int amountInsert = int.Parse(Console.ReadLine());
-
-            bool isMaximum = (amountInsert >= 5000) ? true : false;
-
-            if (isMaximum)
-            {
-                Console.WriteLine("The amount is to large please insert an lesser amount!");
-                amountInsert = int.Parse(Console.ReadLine());
-            }
-
-            Console.WriteLine(amountInsert + "kr will soon be added to your account, please wait!");
-
-            Menu.InsertCardAnimation(amountInsert);
-
-            Console.WriteLine("Recently added: " + amountInsert + "kr");
-            Console.WriteLine("Your account balance before yor newest transaction: " + account.Amount);
-            int total = (amountInsert + account.Amount); // enkel matte
-            Console.WriteLine("Total balance: " + total);
-        }
-        private static void WithdrawMoney(BankAccount account)
-        {
-            
-            Console.WriteLine("How much money would you like to withdraw?");
-            int amountWithdraw = int.Parse(Console.ReadLine());
-
-            Console.WriteLine(amountWithdraw + "kr will soon be taken out from your account, please wait!");
-            Thread.Sleep(3000);
-            Console.WriteLine("Recently withdrawed: " + amountWithdraw + "kr");
-            Console.WriteLine("Your account balance before yor newest withdraw: " + account.Amount);
-            int total = (account.Amount - amountWithdraw); // enkel matte
-
-            Console.WriteLine("Total balance: " + total);
-        }
         public static bool Authenticate(ref string input)
         {
             //Todo check if user exist.
@@ -158,17 +131,6 @@ namespace Bank
                 input = Console.ReadLine();
             }
             return passwordSuccess;
-        }
-
-        public static void LoadingText(string text)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(text);
-                text += '.';
-
-                Thread.Sleep(100);
-            }
         }
     }
 }
