@@ -3,12 +3,27 @@ using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace Bank
 {
-    class BankAccount
+    [DataContract(Name = "Customer", Namespace = "http://www.contoso.com")]
+    class BankAccount 
     {
-        private int BalanceAmount = 0;
+        [DataMember()]
+        public string Password;
+
+        [DataMember]
+        public int BalanceAmount = 0;
+
+        public BankAccount(string _password)
+        {
+            Password = _password;
+        }
 
         public int Amount
         {
@@ -16,11 +31,6 @@ namespace Bank
             set { BalanceAmount = value; }
         }
 
-        enum CardAction
-        {
-            Withdraw,
-            Insert
-        }
         public void WithdrawMoney(BankAccount account)
         {
             Console.WriteLine("How much money would you like to withdraw?");

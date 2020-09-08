@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
 using System.Threading;
 
 namespace Bank
@@ -25,7 +27,7 @@ namespace Bank
 
         public static void OptionMenu() // meny ändrad 
         {
-            BankAccount account = new BankAccount(); //Todo fixa så att account amount ändras om man går tillbaka och gör en withdraw efter man lagt in pengar så att amount blir rätt.
+            BankAccount account = new BankAccount("1234"); //Todo fixa så att account amount ändras om man går tillbaka och gör en withdraw efter man lagt in pengar så att amount blir rätt.
             account.Amount = 4000;
 
             string dialoge = "Press [ENTER] to go back to the menu";
@@ -103,7 +105,13 @@ namespace Bank
         public static void LogIn()
         {
             Console.WriteLine("Type in your password.");
+            Console.WriteLine("If you are new user press enter.");
             string input = Console.ReadLine();
+
+            if (input == string.Empty)
+            {
+                CreateNewUser();
+            }
 
             bool loginSucess;
             do
@@ -118,10 +126,30 @@ namespace Bank
             OptionMenu();
         }
 
+
+        //Todo Den här xml kan användas för att hålla koll på bank kontot. Finns på Bank\Bank\bin\Debug\netcoreapp3.1\BankAccount.xml. 
+        private static void CreateNewUser()
+        {
+            Console.WriteLine(
+                "Creating a bankaccount and serializing it.");
+
+            string path = "BankAccount.xml";
+
+            BankAccount account = new BankAccount("1234");
+
+            FileStream writer = new FileStream(path, FileMode.Create);
+            DataContractSerializer ser =
+                new DataContractSerializer(typeof(BankAccount));
+            ser.WriteObject(writer, account);
+            writer.Close();
+
+        }
+
         //Todo spara data i minnet så att det finns ett konto, blir mer logisk 
         public static bool Authenticate(ref string input)
         {
-            //Todo check if user exist.
+            //Todo kolla i xml filen om användare existerar.
+            //tips på hur man läser xml https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datamemberattribute?view=netcore-3.1
             bool passwordSuccess = (input != string.Empty) ? true : false;
 
             if (!passwordSuccess)
