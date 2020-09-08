@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -9,17 +10,57 @@ namespace Bank
         private static string bankName = "ZoidCoin Bank";
         static void Main(string[] args)
         {
+            
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Hello welcome to {bankName}.");
             Console.ResetColor();
 
-            Console.WriteLine("Would you like to continue? Press enter or ESC to discontinue");
+            Console.WriteLine("Would you like to continue? Press enter or ESC to exit"); // text ändrad
             while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
                 StartCashMachine();
             }
             Console.WriteLine("_Good bye.");
 
+        }
+
+        public static void DrawOptionMenu() // meny ändrad 
+        {
+            Menu ShowMenu = new Menu();
+            bool listRunning = true;
+            while (listRunning)
+            {
+
+                string option;
+                ShowMenu.ShowMenu();
+
+                option = Console.ReadLine();
+
+                switch (option)
+                {
+
+                    case "1":
+                        InsertMoney();
+                        Console.WriteLine("Press [ENTER] to go back to the menu");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+
+                    case "2":
+                        WithdrawMoney();
+                        Console.WriteLine("Press [ENTER] to go back to the menu");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+
+                    case "3":
+                    default:
+                        Console.WriteLine("You did not choose one of the options above.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }
+            }
         }
 
         public static void StartCashMachine()
@@ -61,54 +102,50 @@ namespace Bank
             } while (!loginSucess);
 
             Console.WriteLine("You are logged in!");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             Console.Clear();
             DrawOptionMenu();
         }
-        public static void DrawOptionMenu()
-        {
-            var options = new Dictionary<string, int>()
-            {
-                {"Insert", 1},
-                {"Withdraw", 2},
-                {"Exit", 3}
-                
-            };
 
-            Console.WriteLine("Option:");
-            foreach (KeyValuePair<string, int> pair in options)
-            {
-                Console.WriteLine($"{pair.Value}: {pair.Key}");
-            }
-
-            string input = Console.ReadLine();
-
-            switch (input)
-            {
-                case "1":
-                    InsertMoney();
-                    break;
-                case "2":
-                    WithdrawMoney();
-                    break;
-                case "3":
-                    return;
-                default:
-                    Console.WriteLine("You did not choose one of the options above.");
-                    break;
-            }
-        }
-
-        private static void WithdrawMoney()
-        {
-            throw new NotImplementedException();
-        }
-
+        //Todo spara data i minnet så att det finns ett konto, blir mer logisk 
         private static void InsertMoney()
         {
-            throw new NotImplementedException();
-        }
+            int totalAccount = 4000; // enkel lösning, men funkar eftersom det är private
+            Console.WriteLine("How much money would you like to insert?");
+            int amountInsert = int.Parse(Console.ReadLine());
 
+            bool isMaximum = (amountInsert >= 5000) ? true : false;
+
+            if (isMaximum)
+            {
+                Console.WriteLine("The amount is to large please insert an lesser amount!");
+                amountInsert = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine(amountInsert + "kr will soon be added to your account, please wait!");
+
+            Menu.InsertCardAnimation(amountInsert);
+
+            Console.WriteLine("Recently added: " + amountInsert + "kr");
+            Console.WriteLine("Your account balance before yor newest transaction: " + totalAccount);
+            int total = (amountInsert + totalAccount); // enkel matte
+            Console.WriteLine("Total balance: " + total);
+        }
+        private static void WithdrawMoney()
+        {
+            int totalAccount = 4000;
+
+            Console.WriteLine("How much money would you like to withdraw?");
+            int amountWithdraw = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(amountWithdraw + "kr will soon be taken out from your account, please wait!");
+            Thread.Sleep(3000);
+            Console.WriteLine("Recently withdrawed: " + amountWithdraw + "kr");
+            Console.WriteLine("Your account balance before yor newest withdraw: " + totalAccount);
+            int total = (totalAccount - amountWithdraw); // enkel matte
+
+            Console.WriteLine("Total balance: " + total);
+        }
         public static bool Authenticate(ref string input)
         {
             //Todo check if user exist.
@@ -124,12 +161,12 @@ namespace Bank
 
         public static void LoadingText(string text)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine(text);
                 text += '.';
 
-                Thread.Sleep(200);
+                Thread.Sleep(100);
             }
         }
     }
