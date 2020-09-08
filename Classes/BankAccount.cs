@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.IO;
 
 namespace Bank
 {
@@ -41,8 +42,8 @@ namespace Bank
             Menu.CardAnimation(amountWithdraw, "Withdraw");
             Console.WriteLine("Recently withdrawed: " + amountWithdraw + "kr");
             Console.WriteLine("Your account balance before yor newest withdraw: " + account.Amount);
-            int total = (BalanceAmount -= amountWithdraw); 
-
+            int total = (BalanceAmount -= amountWithdraw);
+            WriteAmount(account);
         }
         public void InsertMoney(BankAccount account)
         {
@@ -66,13 +67,21 @@ namespace Bank
             Console.WriteLine("Your account balance before yor newest transaction: " + account.Amount);
             Thread.Sleep(2000);
             Console.Clear();
-            WriteAmount();
+            WriteAmount(account);
             
            
         }
 
-        public void WriteAmount()
+        public void WriteAmount(BankAccount account)
         {
+            string path = "BankAccount.xml";
+
+            FileStream writer = new FileStream(path, FileMode.Create);
+            DataContractSerializer ser =
+                new DataContractSerializer(typeof(BankAccount));
+            ser.WriteObject(writer, account);
+            writer.Close();
+
             Console.WriteLine($"Total balance is: {BalanceAmount} SEK");
         }
     }

@@ -1,1 +1,1 @@
-<Customer xmlns="http://www.contoso.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><BalanceAmount>0</BalanceAmount><Password>1234</Password></Customer>
+<Customer xmlns="http://www.contoso.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><BalanceAmount>200</BalanceAmount><Password>1234</Password></Customer>

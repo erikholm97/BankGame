@@ -56,7 +56,7 @@ namespace Bank
                         break;
                     case "3":
                         Console.WriteLine(dialoge);
-                        account.WriteAmount();
+                        account.WriteAmount(account);
                         Console.ReadLine();
                         break;
                     default:
