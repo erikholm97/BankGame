@@ -10,12 +10,6 @@ namespace Bank
         private static string bankName = "ZoidCoin Bank";
         static void Main(string[] args)
         {
-            for (int i = 0; i < length; i++)
-            {
-                global::System.Console.WriteLine("test");
-
-            }
-
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Hello welcome to {bankName}.");
             Console.ResetColor();

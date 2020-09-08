@@ -9,6 +9,7 @@ namespace Bank
     class BankAccount
     {
         private int BalanceAmount = 0;
+
         public int Amount
         {
             get { return BalanceAmount;}
