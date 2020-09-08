@@ -27,6 +27,9 @@ namespace Bank
         public static void DrawOptionMenu() // meny ändrad 
         {
             Menu ShowMenu = new Menu();
+            BankAccount account = new BankAccount(); //Todo fixa så att account amount ändras om man går tillbaka och gör en withdraw efter man lagt in pengar så att amount blir rätt.
+            account.Amount = 4000;
+
             bool listRunning = true;
             while (listRunning)
             {
@@ -40,14 +43,14 @@ namespace Bank
                 {
 
                     case "1":
-                        InsertMoney();
+                        InsertMoney(account);
                         Console.WriteLine("Press [ENTER] to go back to the menu");
                         Console.ReadLine();
                         Console.Clear();
                         break;
 
                     case "2":
-                        WithdrawMoney();
+                        WithdrawMoney(account);
                         Console.WriteLine("Press [ENTER] to go back to the menu");
                         Console.ReadLine();
                         Console.Clear();
@@ -108,9 +111,8 @@ namespace Bank
         }
 
         //Todo spara data i minnet så att det finns ett konto, blir mer logisk 
-        private static void InsertMoney()
+        private static void InsertMoney(BankAccount account)
         {
-            int totalAccount = 4000; // enkel lösning, men funkar eftersom det är private
             Console.WriteLine("How much money would you like to insert?");
             int amountInsert = int.Parse(Console.ReadLine());
 
@@ -127,22 +129,21 @@ namespace Bank
             Menu.InsertCardAnimation(amountInsert);
 
             Console.WriteLine("Recently added: " + amountInsert + "kr");
-            Console.WriteLine("Your account balance before yor newest transaction: " + totalAccount);
-            int total = (amountInsert + totalAccount); // enkel matte
+            Console.WriteLine("Your account balance before yor newest transaction: " + account.Amount);
+            int total = (amountInsert + account.Amount); // enkel matte
             Console.WriteLine("Total balance: " + total);
         }
-        private static void WithdrawMoney()
+        private static void WithdrawMoney(BankAccount account)
         {
-            int totalAccount = 4000;
-
+            
             Console.WriteLine("How much money would you like to withdraw?");
             int amountWithdraw = int.Parse(Console.ReadLine());
 
             Console.WriteLine(amountWithdraw + "kr will soon be taken out from your account, please wait!");
             Thread.Sleep(3000);
             Console.WriteLine("Recently withdrawed: " + amountWithdraw + "kr");
-            Console.WriteLine("Your account balance before yor newest withdraw: " + totalAccount);
-            int total = (totalAccount - amountWithdraw); // enkel matte
+            Console.WriteLine("Your account balance before yor newest withdraw: " + account.Amount);
+            int total = (account.Amount - amountWithdraw); // enkel matte
 
             Console.WriteLine("Total balance: " + total);
         }
