@@ -7,5 +7,6 @@ namespace Bank
     class BankAccount
     {
         public int Amount { get; set; }
+       
     }
 }
