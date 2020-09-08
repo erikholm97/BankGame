@@ -10,3 +10,16 @@ C:\Local projects\Exempel med förklaring\Bank\Bank\obj\Debug\netcoreapp3.1\Bank
 C:\Local projects\Exempel med förklaring\Bank\Bank\obj\Debug\netcoreapp3.1\Bank.dll
 C:\Local projects\Exempel med förklaring\Bank\Bank\obj\Debug\netcoreapp3.1\Bank.pdb
 C:\Local projects\Exempel med förklaring\Bank\Bank\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.exe
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.deps.json
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.json
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.dev.json
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.dll
+D:\www\BankGame\bin\Debug\netcoreapp3.1\Bank.pdb
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.csprojAssemblyReference.cache
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfoInputs.cache
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfo.cs
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.csproj.CoreCompileInputs.cache
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.dll
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.pdb
+D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache

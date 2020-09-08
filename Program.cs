@@ -26,17 +26,13 @@ namespace Bank
            
         }
 
-        public static void OptionMenu() // meny ändrad 
+        public static void OptionMenu(BankAccount account) // meny ändrad 
         {
-            BankAccount account = new BankAccount("1234"); //Todo fixa så att account amount ändras om man går tillbaka och gör en withdraw efter man lagt in pengar så att amount blir rätt.
-            account.Amount = 4000;
-
             string dialoge = "Press [ENTER] to go back to the menu";
 
             bool isDone = false;
             while (!isDone)
             {
-
                 string option;
                 Menu.ShowATMMenu(); 
 
@@ -114,17 +110,17 @@ namespace Bank
                 CreateNewUser();
             }
 
-            bool loginSucess;
-            do
-            {
-                loginSucess = Authenticate(ref input);
+           
+            
+            BankAccount bankAccount = Authenticate(ref input);
 
-            } while (!loginSucess);
-
+            
             Console.WriteLine("You are logged in!");
+            OptionMenu(bankAccount);
+            
             Thread.Sleep(1000);
             Console.Clear();
-            OptionMenu();
+            
         }
 
 
@@ -136,7 +132,13 @@ namespace Bank
 
             string path = "BankAccount.xml";
 
-            BankAccount account = new BankAccount("1234");
+            Thread.Sleep(2000);
+            Console.Clear();
+
+            Console.WriteLine("Enter password");
+
+            string password = Console.ReadLine();
+            BankAccount account = new BankAccount(password);
 
             FileStream writer = new FileStream(path, FileMode.Create);
             DataContractSerializer ser =
@@ -147,18 +149,36 @@ namespace Bank
         }
 
         //Todo spara data i minnet så att det finns ett konto, blir mer logisk 
-        public static bool Authenticate(ref string input)
+        public static BankAccount Authenticate(ref string input)
         {
-            //Todo kolla i xml filen om användare existerar.
-            //tips på hur man läser xml https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datamemberattribute?view=netcore-3.1
-            bool passwordSuccess = (input != string.Empty) ? true : false;
+            string path = "BankAccount.xml";
 
-            if (!passwordSuccess)
+            FileStream fs = new FileStream(path,
+                FileMode.OpenOrCreate);
+            DataContractSerializer ser =
+                new DataContractSerializer(typeof(BankAccount));
+            // Deserialize the data and read it from the instance.
+            BankAccount account = (BankAccount)ser.ReadObject(fs);
+            fs.Close();
+
+            bool passwordSuccess = (input == account.Password) ? true : false;
+
+
+            // Deserialize an instance of the Person class
+            // from an XML file.
+
+
+
+            //if (!passwordSuccess)
+            //{
+            //    Console.WriteLine("Wrong password.");
+            //    input = Console.ReadLine();
+            //}
+            if (passwordSuccess)
             {
-                Console.WriteLine("Wrong password.");
-                input = Console.ReadLine();
+                return account;
             }
-            return passwordSuccess;
+            return account;
         }
     }
 }
