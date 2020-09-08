@@ -23,6 +23,10 @@ namespace Bank
             }
             Console.WriteLine("_Good bye.");
 
+            for (int i = 0; i < length; i++) // test sak
+			{
+
+			}
         }
 
         public static void OptionMenu() // meny ändrad 
