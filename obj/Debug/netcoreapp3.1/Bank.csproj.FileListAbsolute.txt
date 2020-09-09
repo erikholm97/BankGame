@@ -36,3 +36,16 @@ C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.csproj.Cor
 C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.dll
 C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.pdb
 C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.exe
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.deps.json
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.json
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.dev.json
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.dll
+C:\Local projects\Exempel med förklaring\BankGame\bin\Debug\netcoreapp3.1\Bank.pdb
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.csprojAssemblyReference.cache
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfoInputs.cache
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfo.cs
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.csproj.CoreCompileInputs.cache
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.dll
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.pdb
+C:\Local projects\Exempel med förklaring\BankGame\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache

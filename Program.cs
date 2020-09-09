@@ -110,16 +110,18 @@ namespace Bank
                 CreateNewUser();
             }
 
-           
             
             BankAccount bankAccount = Authenticate(ref input);
+            
+            Console.ForegroundColor = ConsoleColor.Green;
 
-            
             Console.WriteLine("You are logged in!");
-            OptionMenu(bankAccount);
-            
+
             Thread.Sleep(1000);
+
             Console.Clear();
+
+            OptionMenu(bankAccount);
             
         }
 
@@ -161,23 +163,17 @@ namespace Bank
             BankAccount account = (BankAccount)ser.ReadObject(fs);
             fs.Close();
 
-            bool passwordSuccess = (input == account.Password) ? true : false;
+            bool passwordSuccess = false;
 
+            passwordSuccess = (input == account.Password) ? true : false;
 
-            // Deserialize an instance of the Person class
-            // from an XML file.
-
-
-
-            //if (!passwordSuccess)
-            //{
-            //    Console.WriteLine("Wrong password.");
-            //    input = Console.ReadLine();
-            //}
-            if (passwordSuccess)
+            while (!passwordSuccess)
             {
-                return account;
+                Console.Clear();
+                Console.WriteLine("Wrong password try again.");
+                passwordSuccess = (input == Console.ReadLine()) ? true : false;
             }
+
             return account;
         }
     }

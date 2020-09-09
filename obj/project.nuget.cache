@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oj7feFa3Vt9M4CQkQr9uYA8WTSYPLAJRHTMoh/vdBP89DyjsglRrtH3Q2FaQSody4vzsVtGP8w/BEny++OAOxg==",
+  "dgSpecHash": "AXPEopwi1lKNJNxrlrSKJJUuA4Urs86DFx/uc/+AP1hc40aXCk/uzYqINNlANWJ5CTIOvTYsIAQLFviDGCqdGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dator\\Documents\\GitHub\\BankGame\\Bank.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Dator\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Dator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Local projects\\Exempel med förklaring\\BankGame\\Bank.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
