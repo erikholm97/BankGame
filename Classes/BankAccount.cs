@@ -95,7 +95,7 @@ namespace Bank
 
             Console.WriteLine("Are you sure that you would like to transfer " + transferredAmount + "kr to the following account number " + accountNr + "? (y/n)" );
             string answer = Console.ReadLine();
-            int TotalBalanceAfterTrans = transferredAmount - BalanceAmount;
+            int TotalBalanceAfterTrans =  BalanceAmount - transferredAmount;
             if (answer == "y")
             {
                 Console.WriteLine(transferredAmount + "kr has been transfered to the following acount: " + accountNr);
