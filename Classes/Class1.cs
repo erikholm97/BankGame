@@ -6,5 +6,6 @@ namespace Bank.Classes
 {
     class Class1
     {
+        Console.WriteLine("sdsd");
     }
 }
