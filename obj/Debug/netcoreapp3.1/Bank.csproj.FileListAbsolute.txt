@@ -23,3 +23,16 @@ D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.csproj.CoreCompileInputs.cache
 D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.dll
 D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.pdb
 D:\www\BankGame\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.exe
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.deps.json
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.json
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.runtimeconfig.dev.json
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.dll
+C:\Users\Dator\Documents\GitHub\BankGame\bin\Debug\netcoreapp3.1\Bank.pdb
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.csprojAssemblyReference.cache
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfoInputs.cache
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.AssemblyInfo.cs
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.csproj.CoreCompileInputs.cache
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.dll
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.pdb
+C:\Users\Dator\Documents\GitHub\BankGame\obj\Debug\netcoreapp3.1\Bank.genruntimeconfig.cache
