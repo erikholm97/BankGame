@@ -107,7 +107,7 @@ namespace Bank
 
             if (input == string.Empty)
             {
-                CreateNewUser();
+                input = CreateNewUser();
             }
 
             
@@ -121,13 +121,15 @@ namespace Bank
 
             Console.Clear();
 
+            Console.ResetColor();
+
             OptionMenu(bankAccount);
             
         }
 
 
         //Todo Den här xml kan användas för att hålla koll på bank kontot. Finns på Bank\Bank\bin\Debug\netcoreapp3.1\BankAccount.xml. 
-        private static void CreateNewUser()
+        private static string CreateNewUser()
         {
             Console.WriteLine(
                 "Creating a bankaccount and serializing it.");
@@ -147,6 +149,8 @@ namespace Bank
                 new DataContractSerializer(typeof(BankAccount));
             ser.WriteObject(writer, account);
             writer.Close();
+
+            return password;
 
         }
 
