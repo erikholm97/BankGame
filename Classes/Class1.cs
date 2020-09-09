@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bank.Classes
+namespace Bank
 {
-    class Class1
+   public class Class1
     {
         Console.WriteLine("sdsd");
     }
