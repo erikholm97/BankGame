@@ -15,7 +15,8 @@ namespace Bank
             Console.WriteLine("1) Insert money");
             Console.WriteLine("2) Withdraw money");
             Console.WriteLine("3) Show balance");
-            Console.WriteLine("4) Exit");
+            Console.WriteLine("4) Transfer money");
+           
             Console.SetCursorPosition(0, 8);
             Console.Write("Please choose a number from above: ");
         }
@@ -50,7 +51,7 @@ namespace Bank
                 }
                 Console.ResetColor();
 
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 Console.Clear();
         }
         public static void LoadingText(string text)

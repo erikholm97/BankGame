@@ -59,6 +59,12 @@ namespace Bank
                         account.WriteAmount(account);
                         Console.ReadLine();
                         break;
+                    case "4":
+                        account.TransferMoney(account);
+                        Console.WriteLine(dialoge);
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
                     default:
                         Console.WriteLine("You did not choose one of the options above.");
                         Console.ReadLine();
@@ -117,7 +123,7 @@ namespace Bank
 
             Console.WriteLine("You are logged in!");
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             Console.Clear();
 
@@ -136,7 +142,7 @@ namespace Bank
 
             string path = "BankAccount.xml";
 
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             Console.Clear();
 
             Console.WriteLine("Enter password");
