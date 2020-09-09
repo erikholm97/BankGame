@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 using System.Threading;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Xml;
 using System.IO;
 
 namespace Bank
@@ -19,7 +12,7 @@ namespace Bank
         public string Password;
 
         [DataMember]
-        public int BalanceAmount = 0;
+        public int BalanceAmount = 1000;
 
         public BankAccount(string _password)
         {
@@ -37,12 +30,12 @@ namespace Bank
             Console.WriteLine("How much money would you like to withdraw?");
             int amountWithdraw = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(amountWithdraw + "kr will soon be taken out from your account, please wait!");
+            Console.WriteLine(amountWithdraw + "SEK will soon be taken out from your account, please wait!");
             Thread.Sleep(4000);
             Menu.CardAnimation(amountWithdraw, "Withdraw");
-            Console.WriteLine("Recently withdrawed: " + amountWithdraw + "kr");
+            Console.WriteLine("Recently withdrawed: " + amountWithdraw + "SEK");
             Console.WriteLine("Your account balance before yor newest withdraw: " + account.Amount);
-            int total = (BalanceAmount -= amountWithdraw);
+            int total = (BalanceAmount -= amountWithdraw); // Todo kolla om detta används
             WriteAmount(account);
         }
         public void InsertMoney(BankAccount account)
@@ -58,12 +51,12 @@ namespace Bank
                 amountInsert = int.Parse(Console.ReadLine());
             }
 
-            Console.WriteLine(amountInsert + "kr will soon be added to your account, please wait!");
-            int total = (BalanceAmount += amountInsert);
+            Console.WriteLine(amountInsert + "SEK will soon be added to your account, please wait!");
+            int total = (BalanceAmount += amountInsert); // Används denna?
             
             Menu.CardAnimation(amountInsert, "Insert");
 
-            Console.WriteLine("Recently added: " + amountInsert + "kr");
+            Console.WriteLine("Recently added: " + amountInsert + "SEK");
             Console.WriteLine("Your account balance before yor newest transaction: " + account.Amount);
             Thread.Sleep(3000);
             Console.Clear();
@@ -93,12 +86,12 @@ namespace Bank
             Console.WriteLine("How much money would you like to transfer?");
             int transferredAmount = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Are you sure that you would like to transfer " + transferredAmount + "kr to the following account number " + accountNr + "? (y/n)" );
+            Console.WriteLine("Are you sure that you would like to transfer " + transferredAmount + "SEK to the following account number " + accountNr + "? (y/n)" );
             string answer = Console.ReadLine();
             int TotalBalanceAfterTrans =  BalanceAmount - transferredAmount;
             if (answer == "y")
             {
-                Console.WriteLine(transferredAmount + "kr has been transfered to the following acount: " + accountNr);
+                Console.WriteLine(transferredAmount + "SEK has been transfered to the following acount: " + accountNr);
                 Console.WriteLine("Total balance: " + TotalBalanceAfterTrans);
             }
 
