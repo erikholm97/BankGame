@@ -28,7 +28,9 @@ namespace Bank
 
         public static void OptionMenu(BankAccount account) // meny ändrad 
         {
-            string dialoge = "Press [ENTER] to go back to the menu";
+            string dialoge = $"Press [ENTER] to go back to the menu";
+
+            Console.WriteLine($"Hi, {account.SurName}! What would you like to do?");
 
             bool isDone = false;
             while (!isDone)
@@ -145,10 +147,19 @@ namespace Bank
             Thread.Sleep(3000);
             Console.Clear();
 
-            Console.WriteLine("Enter password");
+            Console.WriteLine("Enter password:");
 
             string password = Console.ReadLine();
-            BankAccount account = new BankAccount(password);
+
+            Console.WriteLine("Write your surname:");
+
+            string surname = Console.ReadLine();
+
+            Console.WriteLine("Write your lastname:");
+
+            string lastname = Console.ReadLine();
+
+            BankAccount account = new BankAccount(password, surname, lastname);
 
             FileStream writer = new FileStream(path, FileMode.Create);
             DataContractSerializer ser =

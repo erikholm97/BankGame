@@ -12,11 +12,20 @@ namespace Bank
         public string Password;
 
         [DataMember]
-        public int BalanceAmount = 1000;
+        public int BalanceAmount = 0; // Startar från 0 så lägger man till genom programmet ens balance.
 
-        public BankAccount(string _password)
+        [DataMember]
+        public string SurName;
+
+        [DataMember]
+        public string LastName;
+
+
+        public BankAccount(string _password, string _surname, string _lastname)
         {
             Password = _password;
+            SurName = _surname;
+            LastName = _lastname;
         }
 
         public int Amount
